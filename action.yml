@@ -1,9 +1,20 @@
-name: 'Start Selenoid Server'
-description: 'Downloads and starts Selenoid server (Selenium Webdriver compatible) using CM tool'
+name: "Start Selenoid Server"
+description: "Downloads and starts Selenoid server (Selenium Webdriver compatible) using CM tool"
 author: Oleksandr Khotemskyi <xotabu4@gmail.com>
 branding:
-  icon: 'box'  
-  color: 'blue'
+  icon: "box"
+  color: "blue"
+
+inputs:
+  limit:
+    description: "Parallel sessions limit"
+    required: true
+  browsers:
+    description: "Specified browser versions to download"
+    required: true
+  versions:
+    description: "Last versions to download"
+    required: true
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: "node12"
+  main: "index.js"
