@@ -5,6 +5,11 @@ on:
     branches:
       - "*" # matches every branch
 
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
 jobs:
   start-selenoid:
     runs-on: ubuntu-latest
