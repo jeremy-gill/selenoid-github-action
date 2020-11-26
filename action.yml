@@ -6,13 +6,13 @@ branding:
   color: "blue"
 
 inputs:
-  limit:
-    description: "Parallel sessions limit"
-    required: true
+  args:
+    description: "To override Selenoid startup arguments sessions"
+    required: false
   browsers:
     description: "Specified browser versions to download"
     required: true
-  versions:
+  last-versions:
     description: "Last versions to download"
     required: true
 runs:

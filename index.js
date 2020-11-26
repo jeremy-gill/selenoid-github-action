@@ -11,14 +11,14 @@ run()
 
 async function run() {
     try {
-        const limit = core.getInput('limit')
+        const args = (core.getInput('args')) ? `--args ${core.getInput('args')}` : ''
         const browsers = core.getInput('browsers')
-        const versions = core.getInput('versions')
+        const versions = core.getInput('last-versions')
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID`);
 
         execSync(`curl -s https://aerokube.com/cm/bash | 
-        bash && ./cm selenoid start --args ${limit} --browsers ${browsers} --last-versions ${versions}`)
+        bash && ./cm selenoid start ${args} --browsers ${browsers} --last-versions ${versions}`)
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID FINISHED`);
 
