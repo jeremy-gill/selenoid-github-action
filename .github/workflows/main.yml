@@ -1,10 +1,6 @@
 name: Test Selenoid
 
 on:
-  push:
-    branches:
-      - "*" # matches every branch
-
   pull_request:
     types:
       - opened
@@ -18,5 +14,9 @@ jobs:
       - run: yarn
       - name: Start Selenoid
         uses: ./
+        with:
+          args: -limit 10
+          browsers: chrome;firefox
+          versions: 1
       - name: Check Selenoid has been started
         run: curl http://localhost:4444/status
