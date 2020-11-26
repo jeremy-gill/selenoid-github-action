@@ -11,7 +11,7 @@ run()
 
 async function run() {
     try {
-        const args = (core.getInput('args')) ? `--args ${core.getInput('args')}` : ''
+        const args = (core.getInput('args')) ? `--args "${core.getInput('args')}"` : ''
 
         const browsers = core.getInput('browsers')
         if (!browsers) throw new Error('browsers param is required')
@@ -21,7 +21,7 @@ async function run() {
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID`);
 
-        execSync(`curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start ${args} --browsers ${browsers} --last-versions ${lastVersions}`)
+        execSync(`curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start ${args} --browsers '${browsers}' --last-versions ${lastVersions}`)
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID FINISHED`);
 
