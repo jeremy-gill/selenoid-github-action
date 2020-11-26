@@ -17,8 +17,7 @@ async function run() {
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID`);
 
-        execSync(`curl -s https://aerokube.com/cm/bash | 
-        bash && ./cm selenoid start ${args} --browsers ${browsers} --last-versions ${versions}`)
+        execSync(`curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start ${args} --browsers ${browsers} --last-versions ${versions}`)
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID FINISHED`);
 

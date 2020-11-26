@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@actions/core": "^1.2.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Xotabu4/selenoid-github-action.git"
