@@ -1,4 +1,4 @@
-# selenoid-github-action v1
+# selenoid-github-action v2
 This action starts selenoid server for your testing needs inside github actions workflow.
 
 Use this action:
@@ -13,38 +13,18 @@ Selenoid is downloaded and configured using CM tool: https://aerokube.com/cm/lat
 on: [push]
 
 jobs:
-  tests:
-    runs-on: ubuntu-latest
-    name: Run WDIO tests
-    steps:
-    - name: Start selenoid
-      uses: Xotabu4/selenoid-github-action@v1
-    - uses: actions/checkout@v1
-    - run: npm ci  
-    - name: Run tests
-      run: npm test
+   steps:
+    - name: Start Selenoid
+        uses: n-ton4/selenoid-github-action@master
+        id: start-selenoid
+        continue-on-error: false
+        with:
+          args: -limit 10
+          browsers: chrome;firefox
+          last-versions: 1
+    - name: Check Selenoid has been started
+        run: curl http://localhost:4444/status
 ```
 
 2) In your tests, specify selenium-remote url as http://localhost:4444/wd/hub , so they will delegate starting of browser to selenoid:
-
-Example for WDIO:
-```
-    hostname: 'localhost',
-    port: 4444,
-    path: "/wd/hub",
-    capabilities: [{
-        maxInstances: 5, // 5 parallel threads
-        browserName: 'chrome',
-    }],
-```
-
 3) Start your tests as usual
-
-
-## This is still BETA, please report any bugs you noticed!
-
-Project that uses this action in CI/CD:
-- https://github.com/StartITProtractorJS/9-js-ui-wdio-Xotabu4
-
-Future:
-- Allow passing configuration to CM
