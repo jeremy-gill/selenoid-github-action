@@ -6,6 +6,9 @@ branding:
   color: "blue"
 
 inputs:
+  version:
+    description: "To provide Selenoid version to download"
+    required: true
   args:
     description: "To override Selenoid startup arguments sessions"
     required: false
