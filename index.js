@@ -17,8 +17,9 @@ async function run() {
         if (!lastVersions) throw new Error('last-versions param is required')
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID`);
-
-        execSync(`curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid download --version ${version} --force && ./cm selenoid start ${args} --browsers '${browsers}' --last-versions ${lastVersions}`)
+        const command = `curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid download --version ${version} --force && ./cm selenoid start ${args} --browsers '${browsers}' --last-versions ${lastVersions}`
+        console.log('Executing command ' + command)
+        execSync(command)
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID FINISHED`);
 
