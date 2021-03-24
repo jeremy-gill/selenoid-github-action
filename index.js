@@ -19,9 +19,13 @@ async function run() {
         console.log(`## DOWNLOADING CM AND STARTING SELENOID`);
         const command = `curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid download --version ${version} --force && ./cm selenoid start ${args} --browsers '${browsers}' --last-versions ${lastVersions}`
         console.log('Executing command ' + command)
+
         execSync(command)
 
         console.log(`## DOWNLOADING CM AND STARTING SELENOID FINISHED`);
+
+        console.log('Checking status')
+        execSync('./cm selenoid status')
 
     } catch (error) {
         core.setFailed(error.message)
