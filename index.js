@@ -25,7 +25,7 @@ async function run() {
         console.log(`## DOWNLOADING CM AND STARTING SELENOID FINISHED`);
 
         console.log('Checking status')
-        execSync('./cm selenoid status')
+        execSync('./cm selenoid status', {stdio: 'inherit'})
 
     } catch (error) {
         core.setFailed(error.message)
