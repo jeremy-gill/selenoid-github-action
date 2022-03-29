@@ -9,6 +9,9 @@ inputs:
   version:
     description: "To provide Selenoid version to download"
     required: true
+  selenoid-start-arguments:
+    description: 'Additional arguments to be added for "./cm selenoid start" command. See full list in readme.md'
+    required: false
   args:
     description: "To override Selenoid startup arguments sessions"
     required: false
